@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Looby — Idées de fonctionnalités</title>
+    <meta
+      name="description"
+      content="Un tableau pour proposer des idées de fonctionnalités pour l'application Looby et suivre celles qui ont été implémentées."
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="brand-block">
+          <span class="brand-mark">L</span>
+          <div>
+            <p class="eyebrow">Looby</p>
+            <h1>Idées de fonctionnalités</h1>
+          </div>
+        </div>
+      </header>
+
+      <main class="app">
+        <section class="panel form-panel">
+          <div class="panel-header">
+            <h2>Proposer une idée</h2>
+          </div>
+
+          <form id="idea-form" aria-label="Formulaire pour ajouter une idée de fonctionnalité">
+            <label for="idea-title">Nom de la fonctionnalité</label>
+            <input
+              id="idea-title"
+              name="title"
+              type="text"
+              maxlength="120"
+              placeholder="Ex : notifications en temps réel"
+              required
+            />
+
+            <label for="idea-description">Description</label>
+            <textarea
+              id="idea-description"
+              name="description"
+              rows="4"
+              maxlength="300"
+              placeholder="Décrivez la fonctionnalité imaginée ou le problème qu'elle résout..."
+            ></textarea>
+
+            <button type="submit">Ajouter l'idée</button>
+          </form>
+        </section>
+
+        <section class="panel board-panel">
+          <div class="board-header">
+            <div>
+              <p class="eyebrow">Roadmap</p>
+              <h2>Fonctionnalités à développer</h2>
+            </div>
+            <div class="stats" aria-live="polite">
+              <span><strong id="idea-total">0</strong> idées</span>
+              <span><strong id="idea-done">0</strong> implémentées</span>
+            </div>
+          </div>
+
+          <div id="ideas" class="ideas" aria-live="polite"></div>
+        </section>
+      </main>
+    </div>
+
+    <template id="idea-template">
+      <article class="idea-card">
+        <div class="idea-main">
+          <div class="idea-status">
+            <input type="checkbox" class="implemented-toggle" aria-label="Marquer comme implémentée" />
+          </div>
+          <div class="idea-copy">
+            <h3 class="idea-title"></h3>
+            <p class="idea-description"></p>
+          </div>
+        </div>
+
+        <div class="idea-actions">
+          <span class="idea-badge">À faire</span>
+          <button type="button" class="remove-button" aria-label="Supprimer l'idée">Supprimer</button>
+        </div>
+      </article>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
